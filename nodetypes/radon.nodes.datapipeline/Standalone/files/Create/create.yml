@@ -4,7 +4,8 @@
        ansible_python_interpreter: /usr/bin/python3
     hosts: localhost
     tasks:
-        # create Datapipeline and register the output pipeline ID
+      - name: Configure region
+        shell: aws configure set region "{{ aws_region }}"
       - name: Create Datapipeline
         shell: aws datapipeline create-pipeline --name "{{ dp_name }}" --unique-id "{{ dp_name }}"-token
         register: result
