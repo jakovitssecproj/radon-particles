@@ -95,7 +95,7 @@ node_types:
               edit_template:
                 type: string
                 required: true
-                default: { get_artifact: [ SELF, edit_template ] }
+                default: { get_artifact: [ SELF, EditTemplate ] }
               pipeline_id:
                 type: string
                 required: true
