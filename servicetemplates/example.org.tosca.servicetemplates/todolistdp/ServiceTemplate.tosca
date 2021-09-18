@@ -1,0 +1,45 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+
+metadata:
+  targetNamespace: "example.org.tosca.servicetemplates"
+topology_template:
+  node_templates:
+    AWSCopyDynamodbToS3_0:
+      type: radon.nodes.datapipeline.Standalone.AWSCopyDynamodbToS3
+      metadata:
+        x: "478"
+        y: "439"
+        displayName: "AWSCopyDynamodbToS3"
+      properties:
+        log_directory: "logs"
+        throughput_ratio: 0.25
+        dp_name: "mydynotos3"
+        sns_arn_topic: "None"
+        output_directory: "items"
+        credential_file_path: "/root/.aws/credentials"
+        dynamodb_region: "eu-west-1"
+        log_bucket: "radon-logs"
+        schedule: "1 Days"
+        configure_file_path: "configure.yaml"
+        dynamodb_table: "items"
+        schedulingStrategy: "EVENT_DRIVEN"
+        schedulingPeriodCRON: "* * * * * ?"
+        name: "mydynotos3"
+        destination_s3: "radon-jakovits-output"
+      requirements:
+        - host:
+            node: AwsPlatform_0
+            relationship: con_HostedOn_2
+            capability: host
+    AwsPlatform_0:
+      type: radon.nodes.aws.AwsPlatform
+      metadata:
+        x: "492"
+        y: "195"
+        displayName: "AwsPlatform"
+      properties:
+        name: "AWS"
+        region: "eu-west-1"
+  relationship_templates:
+    con_HostedOn_2:
+      type: tosca.relationships.HostedOn
