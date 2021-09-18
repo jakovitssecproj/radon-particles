@@ -5,7 +5,8 @@
 
   vars:
     virtualenv_path: "{{ lookup('env', 'VIRTUAL_ENV') }}"
-    pip_args: '--user'
+    pip_args: ''
+#    pip_args: '--user'
 
   tasks:
     - name: prepare environment flags if run in virtualenv
