@@ -21,6 +21,10 @@ node_types:
       credential_file_path:
         type: string
         description: credentials file for handling AWS
+      aws_region:
+        type: string
+        description: region where the pipeline is deployed
+        default: eu-west-1
     interfaces:
       Standard:
         type: tosca.interfaces.node.lifecycle.Standard
@@ -29,6 +33,10 @@ node_types:
             type: string
             required: true
             default: { get_property: [ SELF, configure_file_path ] }
+          aws_region:
+            type: string
+            required: true
+            default: { get_property: [ SELF, aws_region ] }
           dp_name:
             type: string
             required: true
