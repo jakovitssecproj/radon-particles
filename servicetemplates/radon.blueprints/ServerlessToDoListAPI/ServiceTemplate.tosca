@@ -149,7 +149,7 @@ topology_template:
         displayName: "AwsPlatform"
       properties:
         name: "AWS"
-        region: "eu-central-1"
+        region: "eu-west-1"
     AwsLambdaFunction_4:
       type: radon.nodes.aws.AwsLambdaFunction
       metadata:
