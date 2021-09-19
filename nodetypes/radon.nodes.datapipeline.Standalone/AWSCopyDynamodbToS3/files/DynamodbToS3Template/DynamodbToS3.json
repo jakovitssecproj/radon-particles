@@ -10,9 +10,9 @@
     {
       "name": "EmrClusterForBackup",
       "coreInstanceCount": "1",
-      "coreInstanceType": "m3.xlarge",
+      "coreInstanceType": "m5d.xlarge",
       "releaseLabel": "emr-5.23.0",
-      "masterInstanceType": "m3.xlarge",
+      "masterInstanceType": "m5d.xlarge",
       "id": "EmrClusterForBackup",
       "region": "#{myDDBRegion}",
       "type": "EmrCluster"
